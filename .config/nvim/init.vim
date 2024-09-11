@@ -26,4 +26,4 @@ colorscheme gruvbox
 set mouse=a
 
 " remap <Leader> character to ',' (default '\')
-let mapleader = "\"
+" let mapleader = "\"
