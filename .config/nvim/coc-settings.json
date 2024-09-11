@@ -1,0 +1,13 @@
+{
+  // Important, otherwise link completion containing spaces and other special characters won't work.
+  "suggest.invalidInsertCharacters": [],
+
+  "languageserver": {
+    "zk": {
+      "command": "zk",
+      "args": ["lsp", "--log", "/tmp/zk-lsp.log"],
+      "trace.server": "verbose",
+      "filetypes": ["vimwiki", "markdown"]
+    },
+  }
+}

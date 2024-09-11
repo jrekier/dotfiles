@@ -57,13 +57,16 @@ pyenv() {
   command pyenv "$@"
 }
 
-## pyenv 
-## https://github.com/pyenv/pyenv
-#eval "$(pyenv init --path)"
-#if command -v pyenv 1>/dev/null 2>&1; then
-# eval "$(pyenv init -)"
-#fi
-#eval "$(pyenv virtualenv-init -)"
+# Lazy-load pyenv
+pyenv() {
+  unset -f pyenv  # Unset the function after first run
+  eval "$(command pyenv init --path)"
+  eval "$(command pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  
+  # Re-run pyenv with all its arguments after initialization
+  command pyenv "$@"
+}
 
 # julia
 export PATH=/Applications/Julia-1.6.app/Contents/Resources/julia/bin:$PATH
